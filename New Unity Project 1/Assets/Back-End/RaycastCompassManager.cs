@@ -10,32 +10,17 @@ public class RaycastCompassManager : MonoBehaviour {
     [SerializeField] protected RaycastManager WRay;
     [SerializeField] protected RaycastManager SRay;
 
-    [SerializeField] protected Text nt;
-    [SerializeField] protected Text et;
-    [SerializeField] protected Text wt;
-    [SerializeField] protected Text st;
-
-    void OnGUI() {
-        float len = NRay.getDist();
-        nt.text = "North Ray distance from wall: " + len;
-
-        len = ERay.getDist();
-        et.text = "East Ray distance from wall: " + len;
-
-        len = WRay.getDist();
-        wt.text = "West Ray distance from wall: " + len;
-
-        len = SRay.getDist();
-        st.text = "South Ray distance from wall: " + len;
+    public float getDistances(int i) {
+        if (i == 0) {
+            return NRay.getDist();
+        } else if (i == 1) {
+            return ERay.getDist();
+        } else if (i == 2) {
+            return WRay.getDist();
+        } else if (i == 3) {
+            return SRay.getDist();
+        } else {
+            return -99f;
+        }
     }
-
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
