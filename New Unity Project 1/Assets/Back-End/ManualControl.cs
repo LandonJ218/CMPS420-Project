@@ -19,8 +19,8 @@ public class ManualControl : MonoBehaviour {
         }
     }
 
-    void changeAcc(float newAcc) {
-
-    }
+	/*public void changeAcc(float newAcc) {
+		acc = newAcc;
+    } */
     
 }
