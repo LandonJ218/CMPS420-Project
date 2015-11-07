@@ -15,13 +15,13 @@ public class SensorsManager : MonoBehaviour {
     [SerializeField] protected Text WallAlert;
     [SerializeField] protected Text GoalAlert;
 
-    public float norDist { get; private set; }
-    public float easDist { get; private set; }
-    public float wesDist { get; private set; }
-    public float souDist { get; private set; }
+    protected float norDist { get; private set; }
+    protected float easDist { get; private set; }
+    protected float wesDist { get; private set; }
+    protected float souDist { get; private set; }
 
-    public bool wallTripped { get; private set; }
-    public bool goalTripped { get; private set; }
+    protected bool wallTripped;
+    protected bool goalTripped;
 
     void OnGUI() {
         nt.text = "North Ray distance from wall: " + norDist;
