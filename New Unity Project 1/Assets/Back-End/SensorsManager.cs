@@ -4,44 +4,17 @@ using UnityEngine.UI;
 
 public class SensorsManager : MonoBehaviour {
 
-    [SerializeField] RaycastCompassManager Rays;
-    [SerializeField] PrioximitySensor Priox;
+    [SerializeField] protected RaycastCompassManager Rays;
+    [SerializeField] protected PrioximitySensor Priox;
 
-    [SerializeField] protected Text nt;
-    [SerializeField] protected Text et;
-    [SerializeField] protected Text wt;
-    [SerializeField] protected Text st;
-
-    [SerializeField] protected Text WallAlert;
-    [SerializeField] protected Text GoalAlert;
-
-    public float norDist { get; private set; }
-    public float easDist { get; private set; }
-    public float wesDist { get; private set; }
-    public float souDist { get; private set; }
+    public float norDist { get; set; }
+    public float easDist { get; set; }
+    public float wesDist { get; set; }
+    public float souDist { get; set; }
 
     public bool wallTripped { get; private set; }
     public bool goalTripped { get; private set; }
 
-    void OnGUI() {
-        nt.text = "North Ray distance from wall: " + norDist;
-        et.text = "East Ray distance from wall: " + easDist;
-        wt.text = "West Ray distance from wall: " + wesDist;
-        st.text = "South Ray distance from wall: " + souDist;
-
-        if (Priox.prioximityPing("Walls" , 1.1f)) {
-            WallAlert.text = "Wall nearby";
-        } else {
-            WallAlert.text = "No Walls nearby";
-        }
-
-        if (Priox.prioximityPing("Goal" , 1.5f)) {
-            GoalAlert.text = "Goal nearby";
-        } else {
-            GoalAlert.text = "No Goals nearby";
-        }
-
-    }
     //Physics
     void FixedUpdate () {
         getRays();
@@ -67,6 +40,10 @@ public class SensorsManager : MonoBehaviour {
         } else {
             goalTripped = false;
         }
+    }
+
+    public void toggleVis(bool visActive) {
+        Rays.toggleLasers(visActive);
     }
 
     // Use this for initialization

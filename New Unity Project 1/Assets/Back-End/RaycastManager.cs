@@ -3,16 +3,14 @@ using System.Collections;
 
 
 public class RaycastManager : MonoBehaviour {
-    LineRenderer line;
+    [SerializeField] LineRenderer line;
     RaycastHit h;
 
 
 
     // Use this for initialization
     void Start () {
-        line = GetComponent<LineRenderer>();
-
-        line.enabled = true;
+        //line = GetComponent<LineRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -28,6 +26,15 @@ public class RaycastManager : MonoBehaviour {
         
 
 	}
+
+    public void toggleLaser(bool isActive) {
+        if(isActive) {
+            line.enabled = true;
+        } else {
+            line.enabled = false;
+        }
+    }
+
     public float getDist() {
         return h.distance;
     }

@@ -23,4 +23,11 @@ public class RaycastCompassManager : MonoBehaviour {
             return -99f;
         }
     }
+
+    public void toggleLasers(bool active) {
+        NRay.toggleLaser(active);
+        ERay.toggleLaser(active);
+        WRay.toggleLaser(active);
+        SRay.toggleLaser(active);
+    }
 }
