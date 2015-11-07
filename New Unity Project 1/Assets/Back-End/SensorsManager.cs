@@ -15,10 +15,10 @@ public class SensorsManager : MonoBehaviour {
     [SerializeField] protected Text WallAlert;
     [SerializeField] protected Text GoalAlert;
 
-    protected float norDist;
-    protected float easDist;
-    protected float wesDist;
-    protected float souDist;
+    protected float norDist { get; private set; }
+    protected float easDist { get; private set; }
+    protected float wesDist { get; private set; }
+    protected float souDist { get; private set; }
 
     protected bool wallTripped;
     protected bool goalTripped;
