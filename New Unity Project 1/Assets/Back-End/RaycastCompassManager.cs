@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
 public class RaycastCompassManager : MonoBehaviour {
     //As a note, I use the Mnemonic "NEWS" to remember my compass directions when I first learned it so it stuck with me
@@ -22,5 +21,12 @@ public class RaycastCompassManager : MonoBehaviour {
         } else {
             return -99f;
         }
+    }
+
+    public void toggleLasers(bool active) {
+        NRay.toggleLaser(active);
+        ERay.toggleLaser(active);
+        WRay.toggleLaser(active);
+        SRay.toggleLaser(active);
     }
 }
