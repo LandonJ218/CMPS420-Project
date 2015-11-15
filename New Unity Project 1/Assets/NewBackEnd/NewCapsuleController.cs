@@ -11,10 +11,7 @@ public class NewCapsuleController : MonoBehaviour {
 
     protected CharacterController CC;
 
-
-
-    //Testing var, eventually we'll let others decide it
-    protected bool isAtTarget;
+    public bool isAtTarget;
 
     // Use this for initialization
     void Start () {
@@ -24,8 +21,13 @@ public class NewCapsuleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!isAtTarget && target != null) GoToTarget();
-
+        
+        if (!isAtTarget && target != null) {
+            GoToTarget();
+        } else { 
+            target = target.GetWest();
+            isAtTarget = false;
+        }
 	}
 
     void GoToTarget() {

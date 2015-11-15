@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class NodeModel : MonoBehaviour {
 
-    [SerializeField] protected GameObject NorthNode;
-    [SerializeField] protected GameObject EastNode;
-    [SerializeField] protected GameObject WestNode;
-    [SerializeField] protected GameObject SouthNode;
+    [SerializeField] protected NodeModel NorthNode;
+    [SerializeField] protected NodeModel EastNode;
+    [SerializeField] protected NodeModel WestNode;
+    [SerializeField] protected NodeModel SouthNode;
     //Testing
     public bool hasVisited;
 
@@ -26,29 +26,29 @@ public class NodeModel : MonoBehaviour {
         return GetComponent<Transform>();
     }
 
-    public GameObject GetNorth() {
+    public NodeModel GetNorth() {
         if(NorthNode != null) {
             return NorthNode;
         } else {
             return null;
         }
     }
-    public GameObject GetEast() {
+    public NodeModel GetEast() {
         if (EastNode != null) {
             return EastNode;
         } else {
             return null;
         }
     }
-    public GameObject GetWest() {
-        if (NorthNode != null) {
+    public NodeModel GetWest() {
+        if (WestNode != null) {
             return WestNode;
         } else {
             return null;
         }
     }
-    public GameObject GetSouth() {
-        if (NorthNode != null) {
+    public NodeModel GetSouth() {
+        if (SouthNode != null) {
             return SouthNode;
         } else {
             return null;
@@ -56,7 +56,11 @@ public class NodeModel : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        if(other.tag == "Capsule") hasVisited = true;
+        if (other.tag == "Capsule") {
+            hasVisited = true;
+            NewCapsuleController NCC = other.GetComponent<NewCapsuleController>();
+            NCC.isAtTarget = true;
+        } 
     }
 
 }
