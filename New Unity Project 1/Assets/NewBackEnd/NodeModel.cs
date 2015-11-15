@@ -21,6 +21,11 @@ public class NodeModel : MonoBehaviour {
 	
 	}
 
+
+    public Transform GetTransform() {
+        return GetComponent<Transform>();
+    }
+
     public GameObject GetNorth() {
         if(NorthNode != null) {
             return NorthNode;
