@@ -21,13 +21,17 @@ public class NewCapsuleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if(!isAtTarget) {
+            GoToTarget();
+        }
+       /* Example: Traverses from one node to another
+       Will cause a reference error
         if (!isAtTarget && target != null) {
             GoToTarget();
         } else { 
             target = target.GetWest();
             isAtTarget = false;
-        }
+        } */
 	}
 
     void GoToTarget() {
@@ -39,5 +43,13 @@ public class NewCapsuleController : MonoBehaviour {
         }
         
     }
+
+    void OnColliderEnter(Collider other) {
+        if(other.tag == "Node") {
+            isAtTarget = true;
+        }
+    }
+
+
 
 }

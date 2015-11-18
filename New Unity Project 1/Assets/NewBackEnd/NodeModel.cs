@@ -54,13 +54,4 @@ public class NodeModel : MonoBehaviour {
             return null;
         }
     }
-
-    void OnTriggerEnter(Collider other) {
-        if (other.tag == "Capsule") {
-            hasVisited = true;
-            NewCapsuleController NCC = other.GetComponent<NewCapsuleController>();
-            NCC.isAtTarget = true;
-        } 
-    }
-
 }
