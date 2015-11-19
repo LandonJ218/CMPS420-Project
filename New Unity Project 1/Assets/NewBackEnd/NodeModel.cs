@@ -10,6 +10,7 @@ public class NodeModel : MonoBehaviour {
     [SerializeField] protected NodeModel SouthNode;
     //Testing
     public bool hasVisited;
+    public bool isGoal;
 
 	// Use this for initialization
 	void Start () {
