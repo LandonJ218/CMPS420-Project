@@ -14,7 +14,8 @@ public class NodeModel : MonoBehaviour {
     public Dictionary<string , bool> properties;
 
 	// Use this for initialization
-	void Start () { 
+	void Start () {
+        properties = new Dictionary<string , bool>();
         properties.Add("HasVisited" , false);
         properties.Add("isGoal" , isGoal);
 	}
