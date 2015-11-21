@@ -9,12 +9,14 @@ public class NodeModel : MonoBehaviour {
     [SerializeField] protected NodeModel WestNode;
     [SerializeField] protected NodeModel SouthNode;
     //Testing
-    public bool hasVisited;
     public bool isGoal;
 
+    public Dictionary<string , bool> properties;
+
 	// Use this for initialization
-	void Start () {
-        hasVisited = false;
+	void Start () { 
+        properties.Add("HasVisited" , false);
+        properties.Add("isGoal" , isGoal);
 	}
 	
 	// Update is called once per frame
@@ -53,6 +55,24 @@ public class NodeModel : MonoBehaviour {
             return SouthNode;
         } else {
             return null;
+        }
+    }
+
+    public bool getProperty(string propertyName) {
+        bool propValue;
+        if(properties.TryGetValue(propertyName, out propValue)) {
+            return propValue;
+        } else {
+            print("Failure to access: " + propertyName);
+            return false;
+        }
+    }
+    public void setProperty(string propertyName, bool newValue) {
+        bool propValue;
+        if(properties.TryGetValue(propertyName, out propValue)) {
+            properties[propertyName] = newValue;
+        } else {
+            print("Property does not exist");
         }
     }
 }

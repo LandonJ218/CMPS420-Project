@@ -25,7 +25,7 @@ public class NewCapsuleController : MonoBehaviour {
         //    GoToTarget();
         //}
        // Example: Traverses from one node to another
-       //Will cause a reference error
+       //Altered for new properties
        if (isAtTarget && target.isGoal == true)
         {
 
@@ -33,19 +33,19 @@ public class NewCapsuleController : MonoBehaviour {
         else if (!isAtTarget) {
             GoToTarget();
         } else { 
-            if (target.GetWest() != null && target.GetWest().hasVisited == false)
+            if (target.GetWest() != null && target.GetWest().getProperty("HasVisited") == false)
             {
                 target = target.GetWest();
             }
-            else if (target.GetNorth() != null && target.GetNorth().hasVisited == false)
+            else if (target.GetNorth() != null && target.getProperty("HasVisited") == false)
             {
                 target = target.GetNorth();
             }
-            else if (target.GetEast() != null && target.GetEast().hasVisited == false)
+            else if (target.GetEast() != null && target.getProperty("HasVisited") == false)
             {
                 target = target.GetEast();
             }
-            else if (target.GetSouth() != null && target.GetSouth().hasVisited == false)
+            else if (target.GetSouth() != null && target.getProperty("HasVisited") == false)
             {
                 target = target.GetSouth();
             }
@@ -88,7 +88,9 @@ public class NewCapsuleController : MonoBehaviour {
             {
                 print("Target hit");
                 isAtTarget = true;
-                target.hasVisited = true;
+                //old
+                //target.hasVisited = true;
+                target.setProperty("HasVisited" , true);
             }
         }
     }
