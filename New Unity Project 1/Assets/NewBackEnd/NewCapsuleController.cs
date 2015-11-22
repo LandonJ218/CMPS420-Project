@@ -37,15 +37,15 @@ public class NewCapsuleController : MonoBehaviour {
             {
                 target = target.GetWest();
             }
-            else if (target.GetNorth() != null && target.getProperty("HasVisited") == false)
+            else if (target.GetNorth() != null && target.GetNorth().getProperty("HasVisited") == false)
             {
                 target = target.GetNorth();
             }
-            else if (target.GetEast() != null && target.getProperty("HasVisited") == false)
+            else if (target.GetEast() != null && target.GetEast().getProperty("HasVisited") == false)
             {
                 target = target.GetEast();
             }
-            else if (target.GetSouth() != null && target.getProperty("HasVisited") == false)
+            else if (target.GetSouth() != null && target.GetSouth().getProperty("HasVisited") == false)
             {
                 target = target.GetSouth();
             }
@@ -86,10 +86,7 @@ public class NewCapsuleController : MonoBehaviour {
         {
             if (other.gameObject.GetInstanceID() == target.gameObject.GetInstanceID())
             {
-                print("Target hit");
                 isAtTarget = true;
-                //old
-                //target.hasVisited = true;
                 target.setProperty("HasVisited" , true);
             }
         }
