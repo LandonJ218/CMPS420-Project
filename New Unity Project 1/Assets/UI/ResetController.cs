@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ResetController : MonoBehaviour {
 
-    public NodeModel Nodes;
+    public NodeModel[] Nodes;
     public NewCapsuleController NCC;
 
 	void Start () {
