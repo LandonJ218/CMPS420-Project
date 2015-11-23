@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
-public class RunModeController : MonoBehaviour {
-
-    public Button resetButton;
-   
+public class EditModeController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

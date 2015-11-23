@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
-public class RunModeController : MonoBehaviour {
+public class UIOverlord : MonoBehaviour {
 
-    public Button resetButton;
-   
+    public bool isRunning;
 
 	// Use this for initialization
 	void Start () {
