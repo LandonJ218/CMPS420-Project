@@ -88,6 +88,7 @@ public class NewCapsuleController : MonoBehaviour {
             {
                 isAtTarget = true;
                 target.setProperty("HasVisited" , true);
+                target.ApplyVisitMat();
             }
         }
     }

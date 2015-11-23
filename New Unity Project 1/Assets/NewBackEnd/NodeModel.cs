@@ -8,6 +8,9 @@ public class NodeModel : MonoBehaviour {
     [SerializeField] protected NodeModel EastNode;
     [SerializeField] protected NodeModel WestNode;
     [SerializeField] protected NodeModel SouthNode;
+
+    public Material VisitMat;
+    
     //Testing
     public bool isGoal;
 
@@ -75,5 +78,9 @@ public class NodeModel : MonoBehaviour {
         } else {
             print("Property does not exist");
         }
+    }
+    public void ApplyVisitMat() {
+        MeshRenderer MR = GetComponent<MeshRenderer>();
+        MR.material = VisitMat;
     }
 }
