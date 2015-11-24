@@ -9,7 +9,10 @@ public class NodeModel : MonoBehaviour {
     [SerializeField] protected NodeModel WestNode;
     [SerializeField] protected NodeModel SouthNode;
 
+    [SerializeField] protected GameObject Finish;
+
     public Material VisitMat;
+    public Material NoVisitMat;
     
     //Testing
     public bool isGoal;
@@ -21,6 +24,9 @@ public class NodeModel : MonoBehaviour {
         properties = new Dictionary<string , bool>();
         properties.Add("HasVisited" , false);
         properties.Add("isGoal" , isGoal);
+        if(isGoal) {
+            Finish.SetActive(true);
+        }
 	}
 	
 	// Update is called once per frame
@@ -83,4 +89,9 @@ public class NodeModel : MonoBehaviour {
         MeshRenderer MR = GetComponent<MeshRenderer>();
         MR.material = VisitMat;
     }
+    public void ResetVisitMat() {
+        MeshRenderer MR = GetComponent<MeshRenderer>();
+        MR.material = NoVisitMat;
+    }
+
 }
