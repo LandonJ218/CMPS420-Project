@@ -3,8 +3,7 @@ using System.Collections;
 
 public class ResetController : MonoBehaviour {
 
-    public NodeModel[] Nodes;
-    public NewCapsuleController NCC;
+    public MazeRefs[] mazes;
 
 	void Start () {
 	
@@ -14,4 +13,11 @@ public class ResetController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void ResetMazes() {
+        foreach (MazeRefs m in mazes) {
+            m.CC.Teleport(m.CCSpawn);
+            m.ResetNodes();
+        }
+    }
 }

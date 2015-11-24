@@ -89,6 +89,9 @@ public class NewCapsuleController : MonoBehaviour {
         }
     }
 
+    public void Teleport(Transform t) {
+        CC.SimpleMove(t.position);
+    }
 
 
 }
