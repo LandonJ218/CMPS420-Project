@@ -10,9 +10,11 @@ public class NewCapsuleController : MonoBehaviour {
     float tolerance = .1f;
 
     protected CharacterController CC;
-
+    
+    //test cases
     public bool isAtTarget;
     public bool isTestCase;
+    public bool isPlay;
 
     // Use this for initialization
     void Start () {
@@ -22,19 +24,13 @@ public class NewCapsuleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //if(!isAtTarget) {
-        //    GoToTarget();
-        //}
-        // Example: Traverses from one node to another
-        //Altered for new properties
-        if(isTestCase) {
-            testCase();
-        } else {
-            if(!isAtTarget) {
+        if (isPlay) {
+            if (!isAtTarget) {
                 GoToTarget();
             }
-        }
-        
+        } else if (isTestCase) {
+            testCase();
+        }    
 	}
 
 
@@ -90,7 +86,7 @@ public class NewCapsuleController : MonoBehaviour {
     }
 
     public void Teleport(Transform t) {
-        CC.SimpleMove(t.position);
+        CC.gameObject.transform.position = t.position;
     }
 
 

@@ -18,6 +18,8 @@ public class ResetController : MonoBehaviour {
         foreach (MazeRefs m in mazes) {
             m.CC.Teleport(m.CCSpawn);
             m.ResetNodes();
+            m.CC.target = m.startNode;
+            m.CC.isAtTarget = false;
         }
     }
 }
