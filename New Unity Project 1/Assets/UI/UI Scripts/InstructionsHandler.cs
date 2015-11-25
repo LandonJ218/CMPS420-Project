@@ -1,10 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 public class InstructionsHandler : MonoBehaviour {
 
     public List<GameObject> Instructions = new List<GameObject>();
+    public GameObject insprefab;
 
+    public void addINS() {
+        GameObject nins = Instantiate(insprefab);
+        nins.transform.SetParent(this.transform,false);
+        nins.transform.SetAsLastSibling();
+        //stuff
+        nins.transform.localPosition.Set(0 , 0 , 0);
+        Instructions.Add(nins);
+        //adjustins
+    }
 
     public void RemoveIns() {
 
