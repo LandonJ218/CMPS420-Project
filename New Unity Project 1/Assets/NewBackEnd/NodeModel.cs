@@ -22,7 +22,8 @@ public class NodeModel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         properties = new Dictionary<string , bool>();
-        properties.Add("HasVisited" , false);
+        properties.Add("hasVisited" , false);
+        properties.Add("isDeadEnd", false);
         properties.Add("isGoal" , isGoal);
         if(isGoal) {
             Finish.SetActive(true);

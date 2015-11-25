@@ -40,13 +40,13 @@ public class NewCapsuleController : MonoBehaviour {
         } else if (!isAtTarget) {
             GoToTarget();
         } else {
-            if (target.GetWest() != null && target.GetWest().getProperty("HasVisited") == false) {
+            if (target.GetWest() != null && target.GetWest().getProperty("hasVisited") == false) {
                 target = target.GetWest();
-            } else if (target.GetNorth() != null && target.GetNorth().getProperty("HasVisited") == false) {
+            } else if (target.GetNorth() != null && target.GetNorth().getProperty("hasVisited") == false) {
                 target = target.GetNorth();
-            } else if (target.GetEast() != null && target.GetEast().getProperty("HasVisited") == false) {
+            } else if (target.GetEast() != null && target.GetEast().getProperty("hasVisited") == false) {
                 target = target.GetEast();
-            } else if (target.GetSouth() != null && target.GetSouth().getProperty("HasVisited") == false) {
+            } else if (target.GetSouth() != null && target.GetSouth().getProperty("hasVisited") == false) {
                 target = target.GetSouth();
             } else if (target.GetWest() != null) {
                 target = target.GetWest();
@@ -79,7 +79,7 @@ public class NewCapsuleController : MonoBehaviour {
             if (other.gameObject.GetInstanceID() == target.gameObject.GetInstanceID())
             {
                 isAtTarget = true;
-                target.setProperty("HasVisited" , true);
+                target.setProperty("hasVisited" , true);
                 target.ApplyVisitMat();
             }
         }

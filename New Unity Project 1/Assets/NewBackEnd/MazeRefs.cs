@@ -9,7 +9,7 @@ public class MazeRefs : MonoBehaviour {
 
     public void ResetNodes () {
         foreach (NodeModel n in nodes) {
-            n.setProperty("HasVisited" , false);
+            n.setProperty("hasVisited" , false);
             n.ResetVisitMat();
         }
     }
