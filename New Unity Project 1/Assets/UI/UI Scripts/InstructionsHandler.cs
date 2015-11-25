@@ -7,13 +7,13 @@ public class InstructionsHandler : MonoBehaviour {
 
     public List<GameObject> Instructions = new List<GameObject>();
     public GameObject insprefab;
+    public RectTransform rc;
 
     public void addINS() {
         GameObject nins = Instantiate(insprefab);
         nins.transform.SetParent(this.transform,false);
         nins.transform.SetAsLastSibling();
-        //stuff
-        nins.transform.localPosition.Set(0 , 0 , 0);
+
         Instructions.Add(nins);
         //adjustins
     }
