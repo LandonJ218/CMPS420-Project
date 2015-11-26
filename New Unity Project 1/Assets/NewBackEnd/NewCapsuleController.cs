@@ -25,12 +25,14 @@ public class NewCapsuleController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (isPlay) {
-            if (!isAtTarget) {
-                GoToTarget();
+            if (isTestCase) {
+                testCase();
+            } else {
+                if (!isAtTarget) {
+                    GoToTarget();
+                }
             }
-        } else if (isTestCase) {
-            testCase();
-        }    
+        }
 	}
 
 
@@ -81,6 +83,16 @@ public class NewCapsuleController : MonoBehaviour {
                 isAtTarget = true;
                 target.setProperty("hasVisited" , true);
                 target.ApplyVisitMat();
+                /*
+                if(!TestMode){
+                    getTargetDir
+                    If(INS.Order = DeadEnd) {
+                        target."targetDir".deadEnd=MarkDeadEnd()
+                    } else {
+                        target."targetDir" = target;
+                    }
+                }
+                */
             }
         }
     }

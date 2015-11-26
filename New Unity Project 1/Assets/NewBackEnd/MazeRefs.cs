@@ -11,6 +11,7 @@ public class MazeRefs : MonoBehaviour {
         foreach (NodeModel n in nodes) {
             n.setProperty("hasVisited" , false);
             n.ResetVisitMat();
+            CC.isPlay = false;
         }
     }
 }

@@ -20,6 +20,12 @@ public class ResetController : MonoBehaviour {
             m.ResetNodes();
             m.CC.target = m.startNode;
             m.CC.isAtTarget = false;
+            m.CC.isPlay = false;
+        }
+    }
+    public void PlayMaze() {
+       foreach(MazeRefs m in mazes) {
+            m.CC.isPlay = true;
         }
     }
 }
