@@ -97,8 +97,10 @@ public class NewCapsuleController : MonoBehaviour {
                 isAtTarget = true;
                 target.setProperty("hasVisited" , true);
                 target.ApplyVisitMat();
-                /*
-                if(!TestMode){
+
+                if(isTestCase) {
+                    target.CheckIfDeadEnd();
+                }/*else {
                     getTargetDir
                     If(INS.Order = DeadEnd) {
                         target."targetDir".deadEnd=MarkDeadEnd()

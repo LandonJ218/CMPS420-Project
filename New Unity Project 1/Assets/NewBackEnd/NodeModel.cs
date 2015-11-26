@@ -13,6 +13,7 @@ public class NodeModel : MonoBehaviour {
 
     public Material VisitMat;
     public Material NoVisitMat;
+    public Material DeadEndMat;
     
     //Testing
     public bool isGoal;
@@ -94,5 +95,23 @@ public class NodeModel : MonoBehaviour {
         MeshRenderer MR = GetComponent<MeshRenderer>();
         MR.material = NoVisitMat;
     }
+    public void ResetDeadEnd() {
+        MeshRenderer MR = GetComponent<MeshRenderer>();
+        MR.material = NoVisitMat;
+    }
+    public void CheckIfDeadEnd() {
+        int i = 0;
+        if (NorthNode != null) i++;
+        if (EastNode != null) i++;
+        if (WestNode != null) i++;
+        if (SouthNode != null) i++;
+
+        if(i <= 1 && isGoal != true) {
+            setProperty("isDeadEnd" , true);
+            MeshRenderer MR = GetComponent<MeshRenderer>();
+            MR.material = DeadEndMat;
+        }
+    }
+
 
 }
