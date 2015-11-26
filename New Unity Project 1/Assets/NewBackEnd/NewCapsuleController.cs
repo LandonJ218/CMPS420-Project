@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class NewCapsuleController : MonoBehaviour {
 
-    public enum direction {north, east, west, south};
+    //Movement
     public NodeModel target;
     public float speed;
-
     float tolerance = .1f;
-
     protected CharacterController CC;
     
-    //test cases
+    //Control Vars
     public bool isAtTarget;
     public bool isTestCase;
     public bool isPlay;
+
+    //Text
+    public Text msg;
 
     // Use this for initialization
     void Start () {
@@ -24,15 +25,28 @@ public class NewCapsuleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
+        //WARNING! UNCOMMENT THE COMMENTED MESSAGE TEXT ONLY IN THE FINAL MAZE!
         if (isPlay) {
             if (isTestCase) {
+                //msg.text = "Running";
                 testCase();
             } else {
+                msg.text = "Running";
                 if (!isAtTarget) {
                     GoToTarget();
                 }
             }
+            if (target.isGoal && isAtTarget) {
+                isPlay = false;
+                //msg.text = "You win!";
+                if (!isTestCase) {
+                    msg.text = "You win!";
+                }
+
+            }
         }
+
 	}
 
 
