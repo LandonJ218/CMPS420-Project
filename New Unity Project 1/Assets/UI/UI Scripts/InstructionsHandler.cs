@@ -14,13 +14,14 @@ public class InstructionsHandler : MonoBehaviour {
         GameObject nins = Instantiate(insprefab);
         nins.transform.SetParent(this.transform,false);
         nins.transform.SetAsLastSibling();
-
         Instructions.Add(nins);
-        //adjustins
+
+        InstructionPacker IP = nins.GetComponent<InstructionPacker>();
+        IP.IH = this;
     }
 
-    public void RemoveIns() {
-
+    public void RemoveIns(GameObject RootINS) {
+        Instructions.Remove(RootINS);
     }
 
     public void GetINS(int i) {
