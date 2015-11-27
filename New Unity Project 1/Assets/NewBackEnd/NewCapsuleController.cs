@@ -32,6 +32,7 @@ public class NewCapsuleController : MonoBehaviour {
                 //msg.text = "Running";
                 testCase();
             } else {
+                //here should be a logical controller check to ensure that it does not run if the user has no instructions
                 msg.text = "Running";
                 if (!isAtTarget) {
                     GoToTarget();
