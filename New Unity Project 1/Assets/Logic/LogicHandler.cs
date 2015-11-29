@@ -6,6 +6,8 @@ using System.Linq;
 
 public class LogicHandler : MonoBehaviour {
 
+    public Text Message;
+
     struct behavior
     {
         public string direction;
