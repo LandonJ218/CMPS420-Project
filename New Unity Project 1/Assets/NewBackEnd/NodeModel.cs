@@ -23,9 +23,10 @@ public class NodeModel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         properties = new Dictionary<string , bool>();
-        properties.Add("hasVisited" , false);
-        properties.Add("isDeadEnd", false);
-        properties.Add("isGoal" , isGoal);
+        properties.Add("Visited" , false);
+        properties.Add("NotVisited", !getProperty("Visited"));
+        properties.Add("DeadEnd", false);
+        properties.Add("Goal" , isGoal);
         if(isGoal) {
             Finish.SetActive(true);
         }
@@ -33,7 +34,7 @@ public class NodeModel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        setProperty("NotVisited", !getProperty("Visited"));
 	}
 
 
@@ -107,7 +108,7 @@ public class NodeModel : MonoBehaviour {
         if (SouthNode != null) i++;
 
         if(i <= 1 && isGoal != true) {
-            setProperty("isDeadEnd" , true);
+            setProperty("DeadEnd" , true);
             MeshRenderer MR = GetComponent<MeshRenderer>();
             MR.material = DeadEndMat;
         }

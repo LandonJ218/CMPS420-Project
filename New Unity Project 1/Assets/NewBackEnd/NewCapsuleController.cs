@@ -5,6 +5,7 @@ public class NewCapsuleController : MonoBehaviour {
 
     //Movement
     public NodeModel target;
+    public NodeModel current;
     public float speed;
     float tolerance = .1f;
     protected CharacterController CC;
@@ -36,8 +37,29 @@ public class NewCapsuleController : MonoBehaviour {
             } else {
                 //here should be a logical controller check to ensure that it does not run if the user has no instructions
                 msg.text = "Running";
-                if (!isAtTarget) {
-                    GoToTarget();
+                if (isAtTarget && target.isGoal == true)
+                {
+                    LH.Message.text = "YOU WIN!!!";
+
+                }
+                else if (!isAtTarget)
+                {
+                    if (target != null)
+                    {
+                        GoToTarget();
+                    }
+                    else
+                    {
+                        // capsule doesnt know what to do code here
+                        LH.Message.text = "Capsule doesn't know\nwhat to do...";
+                    }
+
+                }
+                else
+                {
+                    current = target;
+                    target = LH.getTarget(current);
+                    isAtTarget = false;
                 }
             }
             if (target.isGoal && isAtTarget) {
@@ -54,31 +76,7 @@ public class NewCapsuleController : MonoBehaviour {
 
 
     void testCase() {
-        if (isAtTarget && target.isGoal == true) {
-
-        } else if (!isAtTarget) {
-            GoToTarget();
-        } else {
-            if (target.GetWest() != null && target.GetWest().getProperty("hasVisited") == false) {
-                target = target.GetWest();
-            } else if (target.GetNorth() != null && target.GetNorth().getProperty("hasVisited") == false) {
-                target = target.GetNorth();
-            } else if (target.GetEast() != null && target.GetEast().getProperty("hasVisited") == false) {
-                target = target.GetEast();
-            } else if (target.GetSouth() != null && target.GetSouth().getProperty("hasVisited") == false) {
-                target = target.GetSouth();
-            } else if (target.GetWest() != null) {
-                target = target.GetWest();
-            } else if (target.GetNorth() != null) {
-                target = target.GetNorth();
-            } else if (target.GetEast() != null) {
-                target = target.GetEast();
-            } else if (target.GetSouth() != null) {
-                target = target.GetSouth();
-            }
-
-            isAtTarget = false;
-        }
+        
     }
 
     void GoToTarget() {
@@ -98,7 +96,7 @@ public class NewCapsuleController : MonoBehaviour {
             if (other.gameObject.GetInstanceID() == target.gameObject.GetInstanceID())
             {
                 isAtTarget = true;
-                target.setProperty("hasVisited" , true);
+                target.setProperty("Visited" , true);
                 target.ApplyVisitMat();
 
                 if(isTestCase) {
