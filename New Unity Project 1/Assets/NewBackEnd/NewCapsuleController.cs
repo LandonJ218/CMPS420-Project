@@ -8,6 +8,7 @@ public class NewCapsuleController : MonoBehaviour {
     public float speed;
     float tolerance = .1f;
     protected CharacterController CC;
+    protected LogicHandler LH;
     
     //Control Vars
     public bool isAtTarget;
@@ -19,6 +20,7 @@ public class NewCapsuleController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        LH = GetComponent<LogicHandler>();
         CC = GetComponent<CharacterController>();
         isAtTarget = false;
 	}
