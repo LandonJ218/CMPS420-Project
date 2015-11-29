@@ -17,18 +17,29 @@ public class LogicHandler : MonoBehaviour {
     behavior[] instructionList;
 
 	public void loadInstructionList (List <InstructionPacker> userInstructions) {
-        instructionList = new behavior[userInstructions.Count];
-        for(int i = 0; i < userInstructions.Count; i++)
+        if (userInstructions.Count == 0)
         {
-            instructionList[i].direction = userInstructions.ElementAt(i).TargetNode;
-            instructionList[i].property = userInstructions.ElementAt(i).TargetCondition;
+            instructionList = new behavior[1];
+            instructionList[0].direction = "noInstructions";
+        }
+        else
+        {
+            instructionList = new behavior[userInstructions.Count];
+            for (int i = 0; i < userInstructions.Count; i++)
+            {
+                instructionList[i].direction = userInstructions.ElementAt(i).TargetNode;
+                instructionList[i].property = userInstructions.ElementAt(i).TargetCondition;
+            }
         }
 	}
 
     public NodeModel getTarget(NodeModel current)
     {
         NodeModel target = null;
-
+        if (instructionList[0].direction == "noInstructions")
+        {
+            return target;
+        }
         for (int i = 0; i < instructionList.Length; i++)
         {
             if (instructionList[i].direction == "North")

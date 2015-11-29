@@ -40,7 +40,7 @@ public class NewCapsuleController : MonoBehaviour {
                 if (isAtTarget && target.isGoal == true)
                 {
                     LH.Message.text = "YOU WIN!!!";
-
+                    isPlay = false;
                 }
                 else if (!isAtTarget)
                 {
@@ -62,14 +62,14 @@ public class NewCapsuleController : MonoBehaviour {
                     isAtTarget = false;
                 }
             }
-            if (target.isGoal && isAtTarget) {
+            /*if (target.isGoal && isAtTarget) {
                 isPlay = false;
                 //msg.text = "You win!";
                 if (!isTestCase) {
                     msg.text = "You win!";
                 }
 
-            }
+            }*/
         }
 
 	}

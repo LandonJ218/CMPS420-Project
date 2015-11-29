@@ -39,14 +39,9 @@ public class InstructionsHandler : MonoBehaviour {
             List<InstructionPacker> IP = new List<InstructionPacker>();
             foreach (GameObject G in Instructions) {
                 IP.Add(G.GetComponent<InstructionPacker>());
-            }
-
-            if (IP.Count != 0) {
+            }      
                 LH.loadInstructionList(IP);
                 running = true;
-            } else {
-                MessageText.text = "At least one instruction\nmust be present";
-            }
 
         } else {
             MessageText.text = "Please wait or hit the\nreset button";
