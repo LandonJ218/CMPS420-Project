@@ -62,21 +62,13 @@ public class NewCapsuleController : MonoBehaviour {
                     isAtTarget = false;
                 }
             }
-            /*if (target.isGoal && isAtTarget) {
-                isPlay = false;
-                //msg.text = "You win!";
-                if (!isTestCase) {
-                    msg.text = "You win!";
-                }
-
-            }*/
         }
 
 	}
 
 
     void testCase() {
-        
+        //TODO: Insert old code     
     }
 
     void GoToTarget() {
@@ -101,15 +93,7 @@ public class NewCapsuleController : MonoBehaviour {
 
                 if(isTestCase) {
                     target.CheckIfDeadEnd();
-                }/*else {
-                    getTargetDir
-                    If(INS.Order = DeadEnd) {
-                        target."targetDir".deadEnd=MarkDeadEnd()
-                    } else {
-                        target."targetDir" = target;
-                    }
                 }
-                */
             }
         }
     }
